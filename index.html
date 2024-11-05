@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Go Out With Me? 💝</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <button class="theme-toggle">
+        <i class='bx bx-moon'></i>
+    </button>
+
+    <div class="progress-bar"></div>
+    <div class="floating-elements"></div>
+
+    <div class="container">
+        <!-- Page 1: Initial Question -->
+        <div class="page active" id="page1">
+            <div class="card">
+                <h2>Cậu đi chơi với tớ nhé? 💝</h2>
+                <button class="btn" onclick="handleYes()">Tớ đồng ý</button>
+                <button class="btn" id="noBtn" onclick="handleNo()">Không</button>
+            </div>
+        </div>
+
+        <!-- Page 2: Encouragement Message -->
+        <div class="page" id="page2">
+            <div class="card">
+                <h2>Yay! Tớ sẽ hỏi cậu một vài câu hỏi cho buổi hẹn 🎉</h2>
+                <button class="btn" onclick="nextPage(3)">Mình tiếp tục nhé</button>
+            </div>
+        </div>
+
+        <!-- Page 3: Availability Question -->
+        <div class="page" id="page3">
+            <div class="card">
+                <h2>Cậu rảnh vào thời gian nào? 📅</h2>
+                <div class="date-time-picker">
+                    <input type="date" id="dateInput" min="">
+                    <input type="time" id="timeInput">
+                </div>
+                <button class="btn" onclick="handleDateTimeSubmit()">Submit</button>
+            </div>
+        </div>
+
+        <!-- Page 4: Food Question -->
+        <div class="page" id="page4">
+            <div class="card">
+                <h2>Cậu muốn chúng ta ăn gì nào? 🍽️</h2>
+                <div class="food-grid">
+                    <div class="food-item" onclick="selectFood(this, 'Burger and Fries')">
+                        <img src="https://picsum.photos/400/300?random=1" alt="Burger and Fries">
+                        <div class="item-label">Burger and Fries</div>
+                    </div>
+                    <div class="food-item" onclick="selectFood(this, 'French Taco')">
+                        <img src="https://picsum.photos/400/300?random=2" alt="French Taco">
+                        <div class="item-label">French Taco</div>
+                    </div>
+                    <div class="food-item" onclick="selectFood(this, 'Pizza')">
+                        <img src="https://picsum.photos/400/300?random=3" alt="Pizza">
+                        <div class="item-label">Pizza</div>
+                    </div>
+                    <div class="food-item" onclick="selectFood(this, 'Steak')">
+                        <img src="https://picsum.photos/400/300?random=4" alt="Steak">
+                        <div class="item-label">Steak</div>
+                    </div>
+                    <div class="food-item" onclick="selectFood(this, 'Takoyaki')">
+                        <img src="https://picsum.photos/400/300?random=5" alt="Takoyaki">
+                        <div class="item-label">Takoyaki</div>
+                    </div>
+                    <div class="food-item" onclick="selectFood(this, 'Your choice')">
+                        <img src="https://picsum.photos/400/300?random=6" alt="Your choice">
+                        <div class="item-label">Lựa chọn của cậu</div>
+                    </div>
+                </div>
+                <button class="btn" onclick="handleFoodSubmit()">Tiếp tục nhá!</button>
+            </div>
+        </div>
+
+        <!-- Page 5: Movie Question -->
+        <div class="page" id="page5">
+            <div class="card">
+                <h2>Cậu thích xem phim gì? 🎬</h2>
+                <div class="movie-grid">
+                    <div class="movie-item" onclick="selectMovie(this, 'Venom')">
+                        <img src="https://picsum.photos/400/300?random=7" alt="Venom">
+                        <div class="item-label">Venom</div>
+                    </div>
+                    <div class="movie-item" onclick="selectMovie(this, 'ĐỐ ANH CÒNG ĐƯỢC TÔI')">
+                        <img src="https://picsum.photos/400/300?random=8" alt="ĐỐ ANH CÒNG ĐƯỢC TÔI">
+                        <div class="item-label">ĐỐ ANH CÒNG ĐƯỢC TÔI</div>
+                    </div>
+                    <div class="movie-item" onclick="selectMovie(this, 'ROBOT HOANG DÃ')">
+                        <img src="https://picsum.photos/400/300?random=9" alt="ROBOT HOANG DÃ">
+                        <div class="item-label">ROBOT HOANG DÃ</div>
+                    </div>
+                    <div class="movie-item" onclick="selectMovie(this, 'VÂY HÃM TẠI ĐÀI BẮC')">
+                        <img src="https://picsum.photos/400/300?random=10" alt="VÂY HÃM TẠI ĐÀI BẮC">
+                        <div class="item-label">VÂY HÃM TẠI ĐÀI BẮC</div>
+                    </div>
+                    <div class="movie-item" onclick="selectMovie(this, 'TIÊN TRI TỬ THẦN')">
+                        <img src="https://picsum.photos/400/300?random=11" alt="TIÊN TRI TỬ THẦN">
+                        <div class="item-label">TIÊN TRI TỬ THẦN</div>
+                    </div>
+                    <div class="movie-item" onclick="selectMovie(this, 'VÙNG ĐẤT BỊ NGUYỀN RỦA')">
+                        <img src="https://picsum.photos/400/300?random=12" alt="VÙNG ĐẤT BỊ NGUYỀN RỦA">
+                        <div class="item-label">VÙNG ĐẤT BỊ NGUYỀN RỦA</div>
+                    </div>
+                </div>
+                <button class="btn" onclick="handleMovieSubmit()">Tiếp tục nàyyy</button>
+            </div>
+        </div>
+
+        <!-- Page 6: Excitement Rating -->
+        <div class="page" id="page6">
+            <div class="card">
+                <h2>Cậu háo hức đến mức nào? 🌟</h2>
+                <div class="slider-container">
+                    <input type="range" min="1" max="100" value="50" id="excitementSlider">
+                </div>
+                <button class="btn" onclick="nextPage(7)">Next</button>
+            </div>
+        </div>
+
+        <!-- Final Page -->
+        <div class="page" id="page7">
+            <div class="card">
+                <h2>Tổng kết lại nhá 💖</h2>
+                <div class="final-details">
+                    <p>Tớ đã ghi lại phòng trường hợp cậu quên</p>
+                    <p>Ngày bọn mình đi chơi: <span id="selectedDate"></span></p>
+                    <p>Giờ mà chúng ta hẹn nhau: <span id="selectedTime"></span></p>
+                    <p>Món ăn mà chúng ta sẽ ăn: <span id="selectedFood"></span></p>
+                    <p>Phim mà cậu chọn: <span id="selectedMovie"></span></p>
+                </div>
+                <button class="btn" onclick="startOver()">Hẹn lại từ đầu</button>
+                <button class="btn" onclick="confirm()">Chốt</button>
+            </div>
+        </div>
+    </div>
+    <script src="myScript.js"></script>
+</body>
+</html>
