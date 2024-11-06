@@ -335,3 +335,27 @@ span{
         margin: 20px 0;
     }
 }
+/* Đảm bảo .date-time-picker được căn giữa */
+.date-time-picker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Tạo khoảng cách giữa các phần tử */
+}
+
+/* Đảm bảo các input trong date-time-picker co giãn phù hợp trên màn hình nhỏ */
+.date-time-picker input {
+    width: 100%;
+    max-width: 250px; /* Giới hạn chiều rộng tối đa để không bị quá dài */
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #f2b2b2;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Căn giữa nút Submit */
+.page#page3 .btn {
+    display: block;
+    margin: 15px auto;
+}
