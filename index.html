@@ -51,28 +51,28 @@
                 <h2>Cậu muốn chúng ta ăn gì nào? 🍽️</h2>
                 <div class="food-grid">
                     <div class="food-item" onclick="selectFood(this, 'Burger and Fries')">
-                        <img src="https://picsum.photos/400/300?random=1" alt="Burger and Fries">
+                        <img src="food\burger and fries.jpg" alt="Burger and Fries">
                         <div class="item-label">Burger and Fries</div>
                     </div>
                     <div class="food-item" onclick="selectFood(this, 'French Taco')">
-                        <img src="https://picsum.photos/400/300?random=2" alt="French Taco">
+                        <img src="food\french taco.jpeg" alt="French Taco">
                         <div class="item-label">French Taco</div>
                     </div>
                     <div class="food-item" onclick="selectFood(this, 'Pizza')">
-                        <img src="https://picsum.photos/400/300?random=3" alt="Pizza">
+                        <img src="food/pizza.jpg" alt="Pizza">
                         <div class="item-label">Pizza</div>
                     </div>
                     <div class="food-item" onclick="selectFood(this, 'Steak')">
-                        <img src="https://picsum.photos/400/300?random=4" alt="Steak">
+                        <img src="food\steak.jpg" alt="Steak">
                         <div class="item-label">Steak</div>
                     </div>
                     <div class="food-item" onclick="selectFood(this, 'Takoyaki')">
-                        <img src="https://picsum.photos/400/300?random=5" alt="Takoyaki">
+                        <img src="food\Takoyaki.jpg" alt="Takoyaki">
                         <div class="item-label">Takoyaki</div>
                     </div>
                     <div class="food-item" onclick="selectFood(this, 'Your choice')">
-                        <img src="https://picsum.photos/400/300?random=6" alt="Your choice">
-                        <div class="item-label">Lựa chọn của cậu</div>
+                        <img src="food\your choice.jpg" alt="Your choice">
+                        <div class="item-label">Theo ý cậu</div>
                     </div>
                 </div>
                 <button class="btn" onclick="handleFoodSubmit()">Tiếp tục nhá!</button>
@@ -85,28 +85,28 @@
                 <h2>Cậu thích xem phim gì? 🎬</h2>
                 <div class="movie-grid">
                     <div class="movie-item" onclick="selectMovie(this, 'Venom')">
-                        <img src="https://picsum.photos/400/300?random=7" alt="Venom">
+                        <img src="movie\venom.jpg" alt="Venom">
                         <div class="item-label">Venom</div>
-                    </div>
-                    <div class="movie-item" onclick="selectMovie(this, 'ĐỐ ANH CÒNG ĐƯỢC TÔI')">
-                        <img src="https://picsum.photos/400/300?random=8" alt="ĐỐ ANH CÒNG ĐƯỢC TÔI">
-                        <div class="item-label">ĐỐ ANH CÒNG ĐƯỢC TÔI</div>
                     </div>
                     <div class="movie-item" onclick="selectMovie(this, 'ROBOT HOANG DÃ')">
                         <img src="https://picsum.photos/400/300?random=9" alt="ROBOT HOANG DÃ">
                         <div class="item-label">ROBOT HOANG DÃ</div>
                     </div>
                     <div class="movie-item" onclick="selectMovie(this, 'VÂY HÃM TẠI ĐÀI BẮC')">
-                        <img src="https://picsum.photos/400/300?random=10" alt="VÂY HÃM TẠI ĐÀI BẮC">
+                        <img src="movie\vây hãm tại đài bắc.jpg" alt="VÂY HÃM TẠI ĐÀI BẮC">
                         <div class="item-label">VÂY HÃM TẠI ĐÀI BẮC</div>
                     </div>
                     <div class="movie-item" onclick="selectMovie(this, 'TIÊN TRI TỬ THẦN')">
-                        <img src="https://picsum.photos/400/300?random=11" alt="TIÊN TRI TỬ THẦN">
+                        <img src="movie\Tiên tri tử thần.jpg" alt="TIÊN TRI TỬ THẦN">
                         <div class="item-label">TIÊN TRI TỬ THẦN</div>
                     </div>
                     <div class="movie-item" onclick="selectMovie(this, 'VÙNG ĐẤT BỊ NGUYỀN RỦA')">
-                        <img src="https://picsum.photos/400/300?random=12" alt="VÙNG ĐẤT BỊ NGUYỀN RỦA">
+                        <img src="movie\vùng đất bị nguyền rủa.jpg" alt="VÙNG ĐẤT BỊ NGUYỀN RỦA">
                         <div class="item-label">VÙNG ĐẤT BỊ NGUYỀN RỦA</div>
+                    </div>
+                    <div class="movie-item" onclick="selectMovie(this, 'Your Choice')">
+                        <img src="food\your choice.jpg" alt="Your Choice">
+                        <div class="item-label">Your choice</div>
                     </div>
                 </div>
                 <button class="btn" onclick="handleMovieSubmit()">Tiếp tục nàyyy</button>
@@ -134,6 +134,7 @@
                     <p>Giờ mà chúng ta hẹn nhau: <span id="selectedTime"></span></p>
                     <p>Món ăn mà chúng ta sẽ ăn: <span id="selectedFood"></span></p>
                     <p>Phim mà cậu chọn: <span id="selectedMovie"></span></p>
+                    <p>Cậu hãy screenshot lại và gửi cho tớ nhé ^^</p>
                 </div>
                 <button class="btn" onclick="startOver()">Hẹn lại từ đầu</button>
                 <button class="btn" onclick="confirm()">Chốt</button>
