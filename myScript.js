@@ -140,10 +140,22 @@
         function confirm() {
             alert('Chốt hẹn! Tớ rất mong chờ được gặp cậu! 💖');
         }
-
-        // Initialize
+        
+        
         document.addEventListener('DOMContentLoaded', () => {
-            createFloatingElements();
-            initializeDateInput();
-            document.querySelector('.theme-toggle').addEventListener('click', toggleTheme);
+        createFloatingElements();
+        initializeDateInput();
+        document.querySelector('.theme-toggle').addEventListener('click', toggleTheme);
+    
+        const backgroundMusic = document.getElementById('backgroundMusic'); // Di chuyển dòng này vào đây
+        let musicStarted = false;
+    
+        document.addEventListener('click', () => {
+            if (!musicStarted) {
+                backgroundMusic.play().catch(error => {
+                    console.error("Lỗi phát nhạc:", error);
+                });
+                musicStarted = true;
+            }
         });
+    });
