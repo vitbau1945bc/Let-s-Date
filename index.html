@@ -19,9 +19,12 @@
         <!-- Page 1: Initial Question -->
         <div class="page active" id="page1">
             <div class="card">
-                <h2>Cậu đi chơi với tớ nhé? 💝</h2>
-                <button class="btn" onclick="handleYes()">Tớ đồng ý</button>
-                <button class="btn" id="noBtn" onclick="handleNo()">Không</button>
+                <h2>Would you like to go out with me? 💝</h2>
+                <div id="gif-container">
+                    <img src="gif/cat.gif" alt="Cute Cat">
+                </div>
+                <button class="btn" onclick="handleYes()">Yes</button>
+                <button class="btn" id="noBtn" onclick="handleNo()">No</button>
             </div>
         </div>
 
@@ -142,6 +145,6 @@
         </div>
     </div>
     <script src="myScript.js"></script>
-    <audio id="backgroundMusic" src="music\coffee edit.mp3" loop volume="0.1"></audio>
+    <!-- <audio id="backgroundMusic" src="music\coffee edit.mp3" loop volume="0.1"></audio> -->
 </body>
 </html>
