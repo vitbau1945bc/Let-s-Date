@@ -50,6 +50,22 @@ body {
     justify-content: center;
     font-size: 1.2rem;
     color: var(--text-color);
+    background-color: var(--accent-color);
+    color: white;
+    border: none; /* Bỏ viền mặc định nếu có */
+    width: 45px;
+    height: 45px;
+    border-radius: 50%; /* Giữ nút hình tròn */
+    transition: all 0.2s ease;  /* Thêm transition cho hiệu ứng mượt mà */
+}
+.theme-toggle:hover {
+    background-color: #ff4da6;
+    box-shadow: 0 0 10px rgba(255, 77, 166, 0.5);
+    transform: scale(1.1);
+}
+
+.theme-toggle i {
+    font-size: 1.4rem;
 }
 
 .container {
