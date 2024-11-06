@@ -293,3 +293,45 @@ input[type="range"]::-webkit-slider-thumb {
 span{
     font-weight: bold;
 }
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    .btn {
+        padding: 8px 20px;
+        font-size: 1rem;
+    }
+
+    .food-grid,
+    .movie-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .food-item img,
+    .movie-item img {
+        height: 150px;
+    }
+
+    .theme-toggle {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .item-label {
+        font-size: 0.9rem;
+    }
+
+    .slider-container {
+        margin: 20px 0;
+    }
+}
