@@ -164,15 +164,18 @@ h2 {
 .date-time-picker input {
     width: 100%;
     max-width: 150px; /* Giới hạn chiều rộng tối đa */
+    box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
     .date-time-picker {
         flex-direction: column; /* Xếp chồng các input trên màn hình nhỏ */
+        align-items: center;
         gap: 20px;
     }
     .date-time-picker input {
         max-width: 100%; /* Chiều rộng tối đa 100% trên màn hình nhỏ */
+        box-sizing: border-box;
     }
 }
 
