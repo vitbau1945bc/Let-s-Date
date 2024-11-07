@@ -59,39 +59,32 @@ function updateProgress() {
     document.querySelector('.progress-bar').style.width = `${progress}%`;
 }
 
-// Page navigation
-// function nextPage(page) {
-//     document.querySelector(`#page${currentPage}`).classList.remove('active');
-//     document.querySelector(`#page${page}`).classList.add('active');
-//     currentPage = page;
-//     updateProgress();
-
-//     // Nếu chuyển đến trang cuối, cập nhật thông tin
-//     if (page === 7) {
-//         updateFinalPage();
-//     }
-// }
 function nextPage(page) {
     const currentPageElement = document.querySelector(`#page${currentPage}`);
     const nextPageElement = document.querySelector(`#page${page}`);
 
-    // Animation slide
+    // Animation slide out cho trang hiện tại
     currentPageElement.classList.add('slide-out');
-    nextPageElement.classList.add('slide-in');
-    nextPageElement.style.visibility = 'visible'; // Hiển thị trang tiếp theo ngay lập tức để animation hoạt động
 
-    // Đợi animation kết thúc rồi mới xóa class và cập nhật trang hiện tại
+    // Sau khi animation slide out kết thúc, ẩn trang hiện tại và hiện trang tiếp theo
     setTimeout(() => {
         currentPageElement.style.visibility = 'hidden';
         currentPageElement.classList.remove('slide-out', 'active');
-        nextPageElement.classList.remove('slide-in');
-        nextPageElement.classList.add('active');
-        currentPage = page;
-        updateProgress();
-        if (page === 7) {
-            updateFinalPage();
-        }
-    }, 500); // Thời gian chờ bằng với thời gian transition trong CSS
+
+        // Hiện trang tiếp theo SAU KHI trang hiện tại đã bị ẩn
+        nextPageElement.style.visibility = 'visible';
+        nextPageElement.classList.add('slide-in', 'active');
+
+        setTimeout(() => {
+            nextPageElement.classList.remove('slide-in');
+            currentPage = page;
+            updateProgress();
+            if (page === 7) {
+                updateFinalPage();
+            }
+        }, 500);
+
+    }, 500);
 }
 
 // Handle Yes button
