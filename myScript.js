@@ -2,6 +2,30 @@ let currentPage = 1;
 let selectedFood = '';
 let selectedMovie = '';
 let dateTime = {date: '', time: ''};
+let userName = ""; // Biến lưu trữ tên người dùng
+
+function setName() {
+    userName = document.getElementById("nameInput").value;
+    if (userName) {
+        personalizeContent(); // Gọi hàm để cá nhân hóa nội dung
+        nextPage(1); // Chuyển đến trang 1 (trang chào mừng)
+    } else {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Vui lòng nhập tên của bạn!',
+        });
+    }
+}
+
+
+function personalizeContent() {
+  // Tìm tất cả các phần tử có class "personalize" và thay thế nội dung bằng tên người dùng
+  const elements = document.querySelectorAll(".personalize");
+  elements.forEach(element => {
+    element.textContent = userName;
+  });
+}
 
 // Create floating hearts
 function createFloatingElements() {
@@ -54,11 +78,11 @@ function nextPage(page) {
     // Animation slide
     currentPageElement.classList.add('slide-out');
     nextPageElement.classList.add('slide-in');
-    nextPageElement.style.display = 'block'; // Hiển thị trang tiếp theo ngay lập tức để animation hoạt động
+    nextPageElement.style.visibility = 'visible'; // Hiển thị trang tiếp theo ngay lập tức để animation hoạt động
 
     // Đợi animation kết thúc rồi mới xóa class và cập nhật trang hiện tại
     setTimeout(() => {
-        currentPageElement.style.display = 'none';
+        currentPageElement.style.visibility = 'hidden';
         currentPageElement.classList.remove('slide-out', 'active');
         nextPageElement.classList.remove('slide-in');
         nextPageElement.classList.add('active');
@@ -93,7 +117,11 @@ function handleDateTimeSubmit() {
         dateTime.time = time;
         nextPage(4);
     } else {
-        alert('Í là cậu phải chọn ngày và giờ để tớ sắp xếp 1 buổi hẹn hoàn hảo!');
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Í là cậu phải chọn ngày và giờ để tớ sắp xếp 1 buổi hẹn hoàn hảo!',
+          })
     }
 }
 
@@ -163,7 +191,7 @@ function startOver() {
 function confirm() {
     backgroundMusic.pause();
     backgroundMusic.currentTime = 0;
-    alert('Chốt hẹn! Tớ rất mong chờ được gặp cậu! 💖');
+    Swal.fire('Chốt hẹn!', 'Tớ rất mong chờ được gặp cậu! 💖', 'success');
 }
 
 
@@ -174,7 +202,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const backgroundMusic = document.getElementById('backgroundMusic'); // Di chuyển dòng này vào đây
     let musicStarted = false;
+    // Xóa class 'active' của trang 1 (chào mừng)
+    document.getElementById('page1').classList.remove('active'); 
 
+    // Thêm class "active" cho trang nhập tên khi trang web được tải
+    document.getElementById('page0').classList.add('active');
     document.addEventListener('click', () => {
         if (!musicStarted) {
             backgroundMusic.play().catch(error => {
