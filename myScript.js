@@ -93,7 +93,11 @@ function handleDateTimeSubmit() {
         dateTime.time = time;
         nextPage(4);
     } else {
-        alert('Í là cậu phải chọn ngày và giờ để tớ sắp xếp 1 buổi hẹn hoàn hảo!');
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Í là cậu phải chọn ngày và giờ để tớ sắp xếp 1 buổi hẹn hoàn hảo!',
+        })
     }
 }
 
@@ -108,7 +112,11 @@ function handleFoodSubmit() {
     if (selectedFood) {
         nextPage(5);
     } else {
-        alert('Chọn đồ ăn đi! Không là đến bữa bọn mình sẽ bị đói đó huhu');
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Chọn đồ ăn đi! Không là đến bữa bọn mình sẽ bị đói đó huhu',
+        })
     }
 }
 
@@ -123,7 +131,11 @@ function handleMovieSubmit() {
     if (selectedMovie) {
         nextPage(6);
     } else {
-        alert('Hãy xem phim nhá. Nhưng mà tớ cần cậu chọn@@');
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Hãy xem phim nhá. Nhưng mà tớ cần cậu chọn@@',
+        })
     }
 }
 
@@ -163,7 +175,7 @@ function startOver() {
 function confirm() {
     backgroundMusic.pause();
     backgroundMusic.currentTime = 0;
-    alert('Chốt hẹn! Tớ rất mong chờ được gặp cậu! 💖');
+    Swal.fire('Chốt hẹn!', 'Tớ rất mong chờ được gặp cậu! 💖', 'success');
 }
 
 

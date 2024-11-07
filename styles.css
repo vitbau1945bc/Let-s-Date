@@ -378,7 +378,7 @@ span{
 
 #kittycat{
     width:200px;
-    height:300px;
+    height:auto;
 }
 #noBtn:hover {
     animation: shake 0.5s;
