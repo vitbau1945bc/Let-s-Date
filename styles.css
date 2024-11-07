@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Pacifico', cursive;
     transition: all 0.3s ease;
 }
 
@@ -360,3 +360,7 @@ span{
     margin: 15px auto;
 }
 
+#kittycat{
+    width:200px;
+    height:300px;
+}
