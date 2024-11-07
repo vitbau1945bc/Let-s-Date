@@ -88,20 +88,26 @@ body {
     position: absolute; /* Đặt vị trí tuyệt đối cho các trang */
     opacity: 0;
     left: 0;
-    transition: transform 0.5s ease-in-out; /* Thêm transition */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Thêm transition cho cả opacity và transform */
 }
 
 .page.active {
-    opacity: 1;
-    visibility: visible; /* Hiển thị trang khi active */
+    opacity: 1; /* Hiển thị trang khi active */
+    visibility: visible;
+    position: relative; /* Chỉ đặt position: relative cho trang active */
+    z-index:0;
 }
 
 .page.slide-in {
     transform: translateX(0); /* Vị trí cuối cùng */
+    position: absolute; /* Chỉ đặt position: absolute khi animation */
+    z-index:1;
 }
 
 .page.slide-out {
     transform: translateX(-100%); /* Vị trí khi trượt ra ngoài */
+    position: absolute; /* Chỉ đặt position: absolute khi animation */
+    z-index:1;
 }
 
 .active {
@@ -377,9 +383,9 @@ span{
     margin: 15px auto;
 }
 
-#kittycat{
-    width:200px;
-    height:300px;
+#kittycat {
+    max-width: 200px;
+    height: auto;
 }
 #noBtn:hover {
     animation: shake 0.5s;

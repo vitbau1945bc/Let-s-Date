@@ -63,28 +63,38 @@ function nextPage(page) {
     const currentPageElement = document.querySelector(`#page${currentPage}`);
     const nextPageElement = document.querySelector(`#page${page}`);
 
-    // Animation slide out cho trang hiện tại
+    // Bắt đầu animation slide-out cho trang hiện tại
     currentPageElement.classList.add('slide-out');
 
-    // Sau khi animation slide out kết thúc, ẩn trang hiện tại và hiện trang tiếp theo
-    setTimeout(() => {
+    // Lắng nghe sự kiện transitionend của trang HIỆN TẠI
+    currentPageElement.addEventListener('transitionend', function handler() {
+        // Ẩn trang hiện tại
         currentPageElement.style.visibility = 'hidden';
         currentPageElement.classList.remove('slide-out', 'active');
 
-        // Hiện trang tiếp theo SAU KHI trang hiện tại đã bị ẩn
+        // Hiện trang tiếp theo và bắt đầu animation slide-in
         nextPageElement.style.visibility = 'visible';
         nextPageElement.classList.add('slide-in', 'active');
 
-        setTimeout(() => {
+
+        // Lắng nghe sự kiện transitionend của trang TIẾP THEO
+        nextPageElement.addEventListener('transitionend', function handler2() {
             nextPageElement.classList.remove('slide-in');
             currentPage = page;
             updateProgress();
+
             if (page === 7) {
                 updateFinalPage();
             }
-        }, 500);
 
-    }, 500);
+
+            // Xóa event listener sau khi hoàn thành animation
+            nextPageElement.removeEventListener('transitionend', handler2);
+            currentPageElement.removeEventListener('transitionend', handler); // Xóa event listener của trang hiện tại
+
+        });
+
+    });
 }
 
 // Handle Yes button
@@ -208,4 +218,8 @@ document.addEventListener('DOMContentLoaded', () => {
             musicStarted = true;
         }
     });
+    for (let i = 1; i <= 7; i++) {
+        document.getElementById(`page${i}`).classList.remove('active');
+    }
+    document.getElementById('page0').classList.add('active');
 })
