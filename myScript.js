@@ -36,16 +36,38 @@ function updateProgress() {
 }
 
 // Page navigation
-function nextPage(page) {
-    document.querySelector(`#page${currentPage}`).classList.remove('active');
-    document.querySelector(`#page${page}`).classList.add('active');
-    currentPage = page;
-    updateProgress();
+// function nextPage(page) {
+//     document.querySelector(`#page${currentPage}`).classList.remove('active');
+//     document.querySelector(`#page${page}`).classList.add('active');
+//     currentPage = page;
+//     updateProgress();
 
-    // Nếu chuyển đến trang cuối, cập nhật thông tin
-    if (page === 7) {
-        updateFinalPage();
-    }
+//     // Nếu chuyển đến trang cuối, cập nhật thông tin
+//     if (page === 7) {
+//         updateFinalPage();
+//     }
+// }
+function nextPage(page) {
+    const currentPageElement = document.querySelector(`#page${currentPage}`);
+    const nextPageElement = document.querySelector(`#page${page}`);
+
+    // Animation slide
+    currentPageElement.classList.add('slide-out');
+    nextPageElement.classList.add('slide-in');
+    nextPageElement.style.display = 'block'; // Hiển thị trang tiếp theo ngay lập tức để animation hoạt động
+
+    // Đợi animation kết thúc rồi mới xóa class và cập nhật trang hiện tại
+    setTimeout(() => {
+        currentPageElement.style.display = 'none';
+        currentPageElement.classList.remove('slide-out', 'active');
+        nextPageElement.classList.remove('slide-in');
+        nextPageElement.classList.add('active');
+        currentPage = page;
+        updateProgress();
+        if (page === 7) {
+            updateFinalPage();
+        }
+    }, 500); // Thời gian chờ bằng với thời gian transition trong CSS
 }
 
 // Handle Yes button
@@ -57,8 +79,9 @@ function handleYes() {
 function handleNo() {
     const yesBtn = document.querySelector('.btn');
     const noBtn = document.getElementById('noBtn');
-    yesBtn.style.fontSize = (parseFloat(getComputedStyle(yesBtn).fontSize) + 2) + 'px';
-    noBtn.style.fontSize = (parseFloat(getComputedStyle(noBtn).fontSize) - 1) + 'px';
+    const noMessages = ["Đừng mà :<", "Nghĩ lại đi :3", "Thôi mà, đi đi mà 🥺", "Hôngggggg", "Đi mà nàoooo 💖"]; // Mảng các câu trả lời
+    const randomIndex = Math.floor(Math.random() * noMessages.length);
+    noBtn.textContent = noMessages[randomIndex];
 }
 
 // Handle date and time submission
