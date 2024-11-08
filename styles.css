@@ -5,45 +5,6 @@
 .item-label, .page {
     text-align: center;
 }
-/* Styles for large screens (desktops) */
-#top-right-image, #top-left-image {
-    position: absolute;
-    top: 10px;
-    width: 200px;
-    height: auto;
-    z-index: 2;
-}
-
-#top-right-image {
-    right: 0;
-}
-
-#top-left-image {
-    left: 0;
-}
-
-/* Styles for small screens (phones) */
-@media (max-width: 768px) {
-    #top-right-image {
-        display: none; /* Ẩn ảnh top-right trên màn hình nhỏ */
-    }
-
-    #top-left-image {
-        position: absolute;
-        width: 150px;
-        height: auto;
-        z-index: 2;
-        top: 40px; /* Đặt ảnh cách mép trên 10px */
-        left: 50%;
-        transform: translateX(-50%); /* Căn giữa ảnh theo chiều ngang */
-    }
-}
-
-#top-right-image img, #top-left-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
 * {
     margin: 0;
     padding: 0;
