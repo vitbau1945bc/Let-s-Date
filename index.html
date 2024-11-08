@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
@@ -77,8 +78,8 @@
                         <img src="food\Takoyaki.jpg" alt="Takoyaki">
                         <div class="item-label">Takoyaki</div>
                     </div>
-                    <div class="food-item" onclick="selectFood(this, 'Your choice')">
-                        <img src="food\your choice.jpg" alt="Your choice">
+                    <div class="food-item" onclick="selectFood(this, 'Theo ý cậu')">
+                        <img src="food/your choice 2.jpg" alt="Theo ý cậu">
                         <div class="item-label">Theo ý cậu</div>
                     </div>
                 </div>
@@ -112,7 +113,7 @@
                         <div class="item-label">Vùng đất bị nguyền rủa</div>
                     </div>
                     <div class="movie-item" onclick="selectMovie(this, 'Theo ý cậu')">
-                        <img src="food\your choice.jpg" alt="Theo ý cậu">
+                        <img src="food/your choice 2.jpg" alt="Theo ý cậu">
                         <div class="item-label">Theo ý cậu</div>
                     </div>
                 </div>
@@ -135,14 +136,16 @@
         <div class="page" id="page7">
             <div class="card">
                 <h2>Tổng kết lại nhá 💖</h2>
+                <p>Tớ đã ghi lại phòng trường hợp cậu quên!!!</p>
                 <div class="final-details">
-                    <p>Tớ đã ghi lại phòng trường hợp cậu quên</p>
-                    <p>Ngày bọn mình đi chơi: <span id="selectedDate"></span></p>
-                    <p>Giờ mà chúng ta hẹn nhau: <span id="selectedTime"></span></p>
-                    <p>Món ăn mà chúng ta sẽ ăn: <span id="selectedFood"></span></p>
-                    <p>Phim mà cậu chọn: <span id="selectedMovie"></span></p>
-                    <p>Cậu hãy screenshot lại và gửi cho tớ nhé ^^</p>
+                    <ul>
+                        <li><i class='bx bx-calendar'></i> Ngày bọn mình đi chơi: <span id="selectedDate"></span></li>
+                        <li><i class='bx bx-time-five'></i> Giờ mà chúng ta hẹn nhau: <span id="selectedTime"></span></li>
+                        <li><i class='bx bx-food-menu'></i> Món ăn mà chúng ta sẽ ăn: <span id="selectedFood"></span></li>
+                        <li><i class='bx bx-movie-play'></i> Phim mà cậu chọn: <span id="selectedMovie"></span></li>
+                    </ul>
                 </div>
+                <p><span><i class="fas fa-camera"></i></span> Cậu hãy screenshot lại và gửi cho tớ nhé ^^</p>
                 <button class="btn" onclick="startOver()">Hẹn lại từ đầu</button>
                 <button class="btn" onclick="confirm()">Chốt</button>
             </div>
