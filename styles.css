@@ -259,6 +259,7 @@ input[type=range]::-webkit-slider-thumb {
 
 .final-details p {
     margin: 10px 0;
+    margin-bottom: 20px;
 }
 
 @keyframes fadeIn {
